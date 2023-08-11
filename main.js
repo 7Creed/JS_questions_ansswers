@@ -9,16 +9,23 @@ function convertFirstLetterToUpperCase(string) {
   if (!string) return;
 
   // convert the string to an array
-  const arr = string.split("");
+  const arr = string.split(" ");
   console.log(arr);
 
   // loop through the string
-  const newArr = arr
-    .map((each, idx) => (idx === 0 ? each.toUpperCase() : each))
-    .join("");
-  console.log(newArr);
+  // const newArr = arr
+  //   .map((each, idx) => (idx === 0 ? each.toUpperCase() : each))
+  //   .join("");
+  // console.log(newArr);
+
+  const newArr2 = arr
+    .map((each, idx) => (each[0].toUpperCase() + each.slice(1)))
+    .join(" ");
+  console.log(newArr2);
 }
-convertFirstLetterToUpperCase("house");
+convertFirstLetterToUpperCase("house is made");
+
+
 
 // 2. Write a JavaScript function that accepts a string as a parameter
 // and finds the longest word within the string
@@ -65,7 +72,7 @@ function isPrime(num) {
 
   for (let i = 2; i <= num / 2; i++) {
     console.log(i);
-    
+
     if (!(num % i)) {
       console.log(i, "Not a prime number");
       return "Not a prime number";
@@ -81,16 +88,16 @@ console.log(isPrime(14));
 
 // Solution
 function getType(value) {
-  return typeof value
+  return typeof value;
 }
 console.log(getType([]));
-console.log(getType(42));         // Output: "number"
-console.log(getType("Hello"));    // Output: "string"
-console.log(getType(true));       // Output: "boolean"
-console.log(getType([]));         // Output: "object"
-console.log(getType({}));         // Output: "object"
-console.log(getType(null));       // Output: "object"
-console.log(getType(undefined));  // Output: "undefined"
+console.log(getType(42)); // Output: "number"
+console.log(getType("Hello")); // Output: "string"
+console.log(getType(true)); // Output: "boolean"
+console.log(getType([])); // Output: "object"
+console.log(getType({})); // Output: "object"
+console.log(getType(null)); // Output: "object"
+console.log(getType(undefined)); // Output: "undefined"
 
 // 5. Write a JavaScript function that takes an array of numbers
 // and find the second lowest and second greatest numbers respectively.
@@ -102,10 +109,12 @@ function findSecondLowestAndGreatest(numbers) {
   }
 
   // Remove duplicates and sort the array
-  const uniqueSortedNumbers = Array.from(new Set(numbers)).sort((a, b) => a - b);
+  const uniqueSortedNumbers = Array.from(new Set(numbers)).sort(
+    (a, b) => a - b
+  );
 
-  const newArr = numbers.sort((a,b) => a - b)
-  return {secondLowest: newArr[1], secondGreatest: newArr[newArr.length - 2]}
+  const newArr = numbers.sort((a, b) => a - b);
+  return { secondLowest: newArr[1], secondGreatest: newArr[newArr.length - 2] };
 }
 console.log(findSecondLowestAndGreatest([1, 2, 3, 4, 5, 6, 7]));
 
@@ -113,4 +122,4 @@ const numbers = [10, 5, 8, 2, 15, 12, 8, 6];
 const result = findSecondLowestAndGreatest(numbers);
 console.log(result);
 
-
+console.log("blabla");
